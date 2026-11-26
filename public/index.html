@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="DocuFlow - ruang kerja konversi PDF dan dokumen. Gabungkan, pisahkan, konversi, edit, dan optimalkan file langsung di browser.">
+  <title>DocuFlow — Document Tools</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="DocuFlow home">
+        <span class="brand-mark"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M9 4.5h11l7 7V30a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6.5a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/><path d="M20 4.8v7h7M12 19h12M12 24h12" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/><path d="m12.2 14.5 3 2.5 5-5" fill="none" stroke="#19a77a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="brand-name">docu<span>flow</span></span>
+      </a>
+      <button class="sidebar-new" id="sidebarHome"><span>＋</span> Semua tools</button>
+      <div class="side-label">KATEGORI TOOLS</div>
+      <nav class="side-nav" id="categoryNav">
+        <button class="side-link active" data-category="all"><span class="side-ico">▦</span> Semua tools <span class="side-count" id="allCount">24</span></button>
+        <button class="side-link" data-category="organize"><span class="side-ico">▤</span> Organisasi PDF</button>
+        <button class="side-link" data-category="convert"><span class="side-ico">⇄</span> Konversi PDF</button>
+        <button class="side-link" data-category="edit"><span class="side-ico">✎</span> Edit PDF</button>
+        <button class="side-link" data-category="security"><span class="side-ico">⬡</span> Keamanan &amp; lainnya</button>
+        <button class="side-link" data-category="image"><span class="side-ico">▧</span> Image tools</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="privacy-card">
+          <div class="privacy-icon">⌑</div>
+          <strong>Privasi terjaga</strong>
+          <p>File diproses langsung di browser perangkat Anda.</p>
+          <span class="privacy-status"><i></i> Pemrosesan lokal</span>
+        </div>
+        <div class="sidebar-footer">DocuFlow <span>v1.0</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Buka navigasi">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="crumbCurrent">Semua tools</strong></div>
+        <div class="top-actions">
+          <span class="local-pill"><i></i> Local processing</span>
+          <button class="history-btn" id="historyButton">↺ <span>Aktivitas</span></button>
+          <div class="account-area" id="accountArea"><a class="account-btn" href="/login" id="accountButton">Masuk</a></div>
+        </div>
+      </header>
+
+      <section class="home-view" id="homeView">
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR DOCUMENT WORKSPACE</div>
+            <h1>Semua urusan dokumen,<br><em>beres dalam satu tempat.</em></h1>
+            <p>Konversi, atur, edit, dan optimalkan dokumen PDF dengan alur kerja yang sederhana.</p>
+            <div class="hero-points"><span><b>✓</b> Tanpa instalasi</span><span><b>✓</b> File diproses lokal</span><span><b>✓</b> Gratis digunakan</span></div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+            <div class="art-file file-back"><span>DOCX</span><i></i><i></i><i></i></div>
+            <div class="art-file file-front"><div class="pdf-badge">PDF</div><i></i><i></i><i></i><div class="art-check">✓</div></div>
+            <div class="art-spark spark-a">✳</div><div class="art-spark spark-b">✦</div><div class="art-float">⇄</div>
+          </div>
+        </section>
+
+        <section class="tool-section">
+          <div class="section-heading">
+            <div><div class="section-kicker">TOOLBOX</div><h2 id="toolHeading">Jelajahi semua tools</h2><p id="toolSubheading">Pilih alat yang Anda butuhkan untuk mulai bekerja.</p></div>
+            <div class="search-wrap"><span>⌕</span><input type="search" id="toolSearch" placeholder="Cari tools, mis. gabungkan PDF..." autocomplete="off"><kbd>⌘ K</kbd></div>
+          </div>
+          <div class="quick-strip">
+            <button class="quick-chip selected" data-filter="all">Semua <span id="quickAllCount">24</span></button>
+            <button class="quick-chip" data-filter="popular">Paling sering dipakai</button>
+            <button class="quick-chip" data-filter="pdf">PDF tools</button>
+            <button class="quick-chip" data-filter="office">Office tools</button>
+            <button class="quick-chip" data-filter="image">Image tools</button>
+          </div>
+          <div id="toolGroups" class="tool-groups"></div>
+          <div id="emptySearch" class="empty-state hidden"><div>⌕</div><strong>Tools tidak ditemukan</strong><p>Coba kata kunci lain, misalnya “konversi”, “gabung”, atau “gambar”.</p></div>
+        </section>
+        <footer class="main-footer"><span>© 2026 DocuFlow</span><span>Dokumen Anda tetap berada di perangkat Anda.</span><a href="#about" id="aboutLink">Tentang pemrosesan file ↗</a></footer>
+      </section>
+
+      <section class="workspace-view hidden" id="workspaceView">
+        <button class="back-link" id="backHome">← Kembali ke semua tools</button>
+        <div class="workspace-heading">
+          <div class="tool-icon-large" id="workspaceIcon">⇄</div>
+          <div><div class="section-kicker" id="workspaceCategory">PDF TOOLS</div><h1 id="workspaceTitle">Gabungkan PDF</h1><p id="workspaceDescription">Satukan beberapa PDF menjadi satu dokumen.</p></div>
+          <span class="secure-tag">⌑ Diproses lokal</span>
+        </div>
+        <div class="workspace-card">
+          <div class="upload-zone" id="uploadZone">
+            <input type="file" id="fileInput" multiple hidden>
+            <div class="upload-illustration"><div class="upload-cloud">↑</div><span class="upload-file upload-file-one">PDF</span><span class="upload-file upload-file-two">DOC</span></div>
+            <h3>Letakkan file Anda di sini</h3>
+            <p>atau pilih dari perangkat untuk memulai</p>
+            <button class="primary-btn" id="browseFiles">Pilih file</button>
+            <div class="upload-note" id="uploadNote">Mendukung PDF dan dokumen umum · Maksimum 100 MB per file</div>
+          </div>
+          <div class="file-list-wrap hidden" id="fileListWrap">
+            <div class="file-list-head"><div><strong>File yang dipilih</strong><span id="fileCountLabel">0 file</span></div><button class="text-btn" id="addMoreFiles">＋ Tambah file</button></div>
+            <div id="fileList" class="file-list"></div>
+          </div>
+          <div class="page-preview-panel hidden" id="pagePreviewPanel">
+            <div class="page-preview-head"><div><strong>Pratinjau halaman</strong><p id="pagePreviewHint">Thumbnail halaman dokumen Anda.</p></div><div class="preview-actions hidden" id="previewActions"><span id="selectedPageCount">0 dipilih</span><button type="button" class="text-btn" id="selectAllPages">Pilih semua</button><button type="button" class="text-btn" id="clearPageSelection">Batal pilih</button></div></div>
+            <div class="page-preview-grid" id="pagePreviewGrid"></div>
+            <div class="page-preview-foot" id="pagePreviewFoot">Pratinjau dibuat di browser Anda.</div>
+          </div>
+          <div class="options-panel hidden" id="optionsPanel">
+            <div class="options-title"><div><strong>Pengaturan</strong><p>Sesuaikan hasil sesuai kebutuhan Anda.</p></div><span class="settings-symbol">☷</span></div>
+            <div id="toolOptions" class="tool-options"></div>
+          </div>
+          <div class="run-row hidden" id="runRow">
+            <div class="run-info"><span class="run-shield">⌑</span><div><strong>File tetap privat</strong><small>Semua proses berjalan di browser Anda.</small></div></div>
+            <button class="primary-btn run-btn" id="runTool">Jalankan tool <span>→</span></button>
+          </div>
+          <div class="progress-wrap hidden" id="progressWrap"><div class="progress-head"><span id="progressLabel">Memproses dokumen...</span><strong id="progressPercent">0%</strong></div><div class="progress-track"><i id="progressBar"></i></div><p id="progressDetail">Menyiapkan file Anda</p></div>
+          <div class="result-panel hidden" id="resultPanel">
+            <div class="result-success">✓</div><div class="result-copy"><strong>File berhasil diproses</strong><p id="resultDescription">Hasil Anda siap diunduh.</p></div><button class="primary-btn" id="downloadResult">Unduh hasil <span>↓</span></button><button class="icon-button" id="resetTool" title="Mulai ulang">↻</button>
+          </div>
+          <div class="error-panel hidden" id="errorPanel"><strong>Proses belum berhasil</strong><p id="errorMessage">Periksa file dan coba lagi.</p><button class="text-btn" id="dismissError">Tutup</button></div>
+        </div>
+        <div class="workspace-footnote"><span>ⓘ</span><p>Untuk menjaga privasi, file tidak disimpan ke server DocuFlow. Tutup tab untuk menghapus file dari sesi browser.</p></div>
+      </section>
+
+      <section class="activity-view hidden" id="activityView">
+        <button class="back-link" id="activityBack">← Kembali</button>
+        <div class="section-kicker">RIWAYAT SESI</div><h1 class="activity-title">Aktivitas terbaru</h1><p class="activity-intro">Riwayat hanya tersimpan sementara di browser ini.</p>
+        <div id="activityList" class="activity-list"></div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop hidden" id="aboutModal"><div class="about-modal"><button class="modal-close" id="closeAbout">×</button><div class="section-kicker">PRIVACY BY DESIGN</div><h2>Pemrosesan lokal, bukan upload ke server.</h2><p>DocuFlow menjalankan proses utama langsung di browser menggunakan JavaScript dan pustaka pemrosesan dokumen. File yang Anda pilih tidak dikirim ke database DocuFlow.</p><p>Beberapa pustaka pemrosesan dimuat dari CDN saat fitur digunakan. Untuk file sangat besar atau dokumen Office yang kompleks, hasil konversi dapat berbeda dari aplikasi desktop.</p><button class="primary-btn" id="understoodAbout">Mengerti</button></div></div>
+  <script src="/app.js"></script>
+</body>
+</html>
